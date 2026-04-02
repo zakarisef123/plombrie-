@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f172a" />
+    <title>Plombier Var : Dépannage Urgence 24h/7j | SOS PLOMBERIE</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --primary-blue: #0ea5e9;   
+            --dark-blue: #0c4a6e;     
+            --slate-900: #0f172a;
+            --slate-800: #1e293b;
+            --slate-50: #f8fafc;
+            --slate-400: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background-color: var(--slate-900); 
+            color: var(--slate-50); 
+            font-family: 'Inter', system-ui, sans-serif; 
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        @keyframes pulse-blue {
+            0% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7); }
+            70% { box-shadow: 0 0 0 12px rgba(14, 165, 233, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
+        }
+
+        .floating-phone {
+            position: fixed; bottom: 20px; right: 20px;
+            background: var(--primary-blue); width: 65px; height: 65px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            z-index: 9999; text-decoration: none; animation: pulse-blue 2s infinite;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        .floating-phone svg { width: 30px; height: 30px; fill: white; }
+
+        #cookie-banner {
+            position: fixed; bottom: 20px; left: 20px; width: 320px;
+            background: rgba(15, 23, 42, 0.98); border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px); padding: 20px; border-radius: 12px;
+            z-index: 10000; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .cookie-btns { display: flex; gap: 8px; margin-top: 10px; }
+        .cookie-btns button { flex: 1; padding: 8px; border-radius: 6px; border: none; font-weight: 700; cursor: pointer; }
+        .accept-cook { background: var(--primary-blue); color: white; }
+        .refuse-cook { background: transparent; color: white; border: 1px solid rgba(255,255,255,0.2); }
+
+        header {
+            position: fixed; top: 0; width: 100%; height: 80px;
+            background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 5%; z-index: 1000;
+        }
+
+        .logo { 
+            font-family: 'DM Sans'; 
+            font-weight: 800; 
+            font-size: 1.5rem; 
+            text-transform: uppercase; 
+            color: var(--primary-blue); 
+            text-decoration: none; 
+        }
+        
+        nav.desktop-nav { display: flex; gap: 30px; }
+        nav.desktop-nav a { color: var(--slate-400); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        nav.desktop-nav a:hover { color: white; }
+
+        .btn-nav-devis { background: var(--primary-blue); color: white; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-weight: 800; font-size: 0.85rem; animation: pulse-blue 2.5s infinite; }
+
+        .hero {
+            padding: 180px 5% 100px; text-align: center;
+            background: radial-gradient(circle at top right, #0c4a6e, #0f172a);
+        }
+        .transition-divider {
+            height: 150px;
+            background: linear-gradient(180deg, #0f172a 0%, var(--slate-50) 100%);
+        }
+        .hero h1 { font-family: 'DM Sans'; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 20px; }
+        .hero p { color: var(--slate-400); max-width: 700px; margin: 0 auto 40px; font-size: 1.1rem; }
+        
+        .btn-hero-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .btn-main { padding: 16px 32px; border-radius: 12px; font-weight: 800; text-decoration: none; font-size: 1rem; transition: 0.3s; border: none; cursor: pointer; }
+        .btn-blue { background: var(--primary-blue); color: white; animation: pulse-blue 2s infinite; }
+        .btn-outline { background: transparent; color: white; border: 1px solid var(--primary-blue); }
+
+        .features { padding: 80px 5% 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .feature-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 30px; border-radius: 20px; text-align: center; }
+        .feature-card svg { width: 40px; height: 40px; fill: var(--primary-blue); margin-bottom: 15px; }
+
+        .services-section { background-color: var(--slate-50); color: var(--slate-900); padding: 0 5% 100px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 40px auto 0; }
+        .service-card { background: white; padding: 40px; border-radius: 24px; border: 1px solid #cbd5e1; text-decoration: none; color: inherit; display: block; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: 0.3s; }
+        .service-card:hover { transform: translateY(-10px); border-color: var(--primary-blue); }
+        .service-card h3 { font-family: 'DM Sans'; margin-bottom: 10px; font-size: 1.4rem; }
+        .price-tag { color: var(--primary-blue); font-weight: 800; font-size: 1.1rem; margin-bottom: 15px; display: block; }
+        .btn-devis-small { display: inline-block; margin-top: 20px; font-weight: 800; background: var(--primary-blue); color: white; padding: 10px 20px; border-radius: 8px; font-size: 0.85rem; text-transform: uppercase; }
+
+        .contact-section { padding: 100px 5%; background: linear-gradient(180deg, var(--slate-50) 0%, #0c4a6e 10%, #0f172a 100%); }
+        .contact-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; align-items: center; }
+        .contact-info h2 { font-size: clamp(2.5rem, 5vw, 3rem); font-family: 'DM Sans'; margin-bottom: 20px; color: white; }
+        .phone-box-large { border: 2px solid var(--primary-blue); padding: 30px; border-radius: 20px; display: block; text-decoration: none; color: white; text-align: center; margin-top: 30px; animation: pulse-blue 2s infinite; }
+        .phone-box-large span { font-size: 2.2rem; font-weight: 800; color: var(--primary-blue); display: block; }
+
+        .form-card { background: white; padding: 40px; border-radius: 24px; color: var(--slate-900); }
+        .form-group { margin-bottom: 15px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px; border: 1px solid #e2e8f0; border-radius: 12px; font-family: inherit; font-size: 1rem; }
+        .btn-submit { width: 100%; background: var(--primary-blue); color: white; padding: 18px; border-radius: 12px; border: none; font-weight: 800; cursor: pointer; animation: pulse-blue 2.5s infinite; }
+
+        .zones { padding: 80px 5%; text-align: center; background: white; color: var(--slate-900); }
+        .zone-badge { padding: 10px 20px; border: 1px solid var(--primary-blue); border-radius: 50px; font-weight: 700; color: var(--primary-blue); display: inline-block; margin: 6px; }
+
+        footer { background: #000; padding: 80px 5% 40px; color: var(--slate-400); display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        footer h4 { color: white; margin-bottom: 20px; }
+        footer a { color: var(--slate-400); text-decoration: none; display: block; margin-bottom: 10px; transition: 0.3s; }
+        footer a:hover { color: var(--primary-blue); }
+
+        @media (max-width: 600px) {
+            header { height: 70px; padding: 0 4%; }
+            .logo { font-size: 1.1rem; }
+            .desktop-nav { display: none; }
+            .hero { padding: 130px 5% 60px; }
+            .hero h1 { font-size: 2.1rem; }
+            .btn-main { width: 100%; }
+            .service-card { padding: 25px; }
+            .contact-info h2 { font-size: 2rem; text-align: center; }
+            .phone-box-large span { font-size: 1.7rem; }
+            .form-card { padding: 25px; margin-top: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="cookie-banner">
+        <p><strong>💧 Cookies</strong><br>Nous utilisons des cookies pour optimiser votre expérience.</p>
+        <div class="cookie-btns">
+            <button class="accept-cook" onclick="this.closest('#cookie-banner').style.display='none'">Accepter</button>
+            <button class="refuse-cook" onclick="this.closest('#cookie-banner').style.display='none'">Refuser</button>
+        </div>
+    </div>
+
+    <a href="tel:0605722391" class="floating-phone">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1H7c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    </a>
+
+    <header>
+        <a href="#accueil" class="logo">SOS Plomberie</a>
+        <nav class="desktop-nav">
+            <a href="#accueil">Accueil</a>
+            <a href="#services">Prestations</a>
+            <a href="#intervention">Villes</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+            <a href="#contact" class="btn-nav-devis">DEVIS EN LIGNE</a>
+        </div>
+    </header>
+
+    <section class="hero" id="accueil">
+        <p style="color: var(--primary-blue); font-weight: 800; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 10px;">Intervention Rapide Var</p>
+        <h1><span style="color: var(--primary-blue)">Artisan Plombier</span> <br>Dépannage & Travaux</h1>
+        <p>Fuite d'eau, canalisation bouchée ou panne de chauffe-eau ? Nos experts interviennent 24h/24 pour tous vos problèmes de plomberie.</p>
+        <div class="btn-hero-group">
+            <a href="tel:0605722391" class="btn-main btn-blue">📞 URGENCE : 06 05 72 23 91</a>
+            <a href="#contact" class="btn-main btn-outline">DEMANDER UN DEVIS</a>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <svg viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+                <h4>Arrivée en 30 min</h4>
+            </div>
+            <div class="feature-card">
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                <h4>Agréé Assurances</h4>
+            </div>
+            <div class="feature-card">
+                <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2z"/></svg>
+                <h4>Transparence Prix</h4>
+            </div>
+        </div>
+    </section>
+
+    <div class="transition-divider"></div>
+
+    <section class="services-section" id="services">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <p style="color: var(--primary-blue); font-weight: 800; text-transform: uppercase; font-size: 0.9rem;">Prestations</p>
+            <h2 style="font-family: 'DM Sans'; font-size: 2.2rem;">Nos Services de Plomberie</h2>
+        </div>
+        <div class="services-grid">
+            <a href="#contact" class="service-card">
+                <h3>🔍 Recherche de fuite</h3>
+                <span class="price-tag">À partir de 120€</span>
+                <p>Détection non destructive par caméra thermique ou acoustique.</p>
+                <div class="btn-devis-small">Prendre RDV ></div>
+            </a>
+            <a href="#contact" class="service-card">
+                <h3>🚽 Débouchage canalisation</h3>
+                <span class="price-tag">À partir de 80€</span>
+                <p>WC, évier ou douche bouchés ? Curage haute pression immédiat.</p>
+                <div class="btn-devis-small">Dépannage ></div>
+            </a>
+            <a href="#contact" class="service-card">
+                <h3>🔥 Chauffe-eau & Ballon</h3>
+                <span class="price-tag">À partir de 150€</span>
+                <p>Réparation de résistance, détartrage ou remplacement de groupe.</p>
+                <div class="btn-devis-small">Réparer ></div>
+            </a>
+            <a href="#contact" class="service-card">
+                <h3>🔧 Robinetterie & Sanitaires</h3>
+                <span class="price-tag">À partir de 90€</span>
+                <p>Installation ou remplacement de mitigeur, chasse d'eau et évacuations.</p>
+                <div class="btn-devis-small">Installation ></div>
+            </a>
+            <a href="#contact" class="service-card">
+                <h3>🚿 Rénovation Salle de Bain</h3>
+                <span class="price-tag">Sur Devis Gratuit</span>
+                <p>Pose de douche à l'italienne, baignoire et raccordements complets.</p>
+                <div class="btn-devis-small">Projet ></div>
+            </a>
+            <a href="#contact" class="service-card">
+                <h3>🆘 Dépannage Urgence</h3>
+                <span class="price-tag">Intervention 24/7</span>
+                <p>Inondation ou coupure d'eau ? Assistance prioritaire dans le Var.</p>
+                <div class="btn-devis-small">SOS ></div>
+            </a>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Votre Plombier dans le Var</h2>
+                <p>Une question ? Un devis ? Contactez-nous maintenant.</p>
+                <a href="tel:0605722391" class="phone-box-large">
+                    DISPONIBLE MAINTENANT
+                    <span>06 05 72 23 91</span>
+                </a>
+            </div>
+            <div class="form-card">
+                <form action="https://formspree.io/f/Sosfrance.contact@gmail.com" method="POST">
+                    <div class="form-group"><input type="text" name="nom" placeholder="Votre Nom" required></div>
+                    <div class="form-group"><input type="tel" name="tel" placeholder="Téléphone" required></div>
+                    <div class="form-group">
+                        <select name="service" required>
+                            <option value="" disabled selected>Nature de l'intervention...</option>
+                            <option value="Fuite d'eau">Recherche/Réparation de fuite</option>
+                            <option value="Débouchage">Débouchage canalisations</option>
+                            <option value="Chauffe-eau">Panne Chauffe-eau</option>
+                            <option value="Installation">Installation Sanitaire</option>
+                            <option value="Rénovation">Rénovation Complète</option>
+                            <option value="Autre">Autre besoin</option>
+                        </select>
+                    </div>
+                    <div class="form-group"><textarea name="message" placeholder="Votre ville et description du problème..." rows="2"></textarea></div>
+                    <button type="submit" class="btn-submit">DEMANDER MON DEVIS GRATUIT</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="zones" id="intervention">
+        <h2 style="font-family: 'DM Sans'; margin-bottom: 20px;">Plombier de proximité dans le Var</h2>
+        <div class="zones-grid">
+            <span class="zone-badge">Toulon</span><span class="zone-badge">La Seyne-sur-Mer</span><span class="zone-badge">Hyères</span><span class="zone-badge">Fréjus</span><span class="zone-badge">Saint-Raphaël</span><span class="zone-badge">Draguignan</span><span class="zone-badge">La Garde</span><span class="zone-badge">La Valette</span><span class="zone-badge">Sainte-Maxime</span><span class="zone-badge">Brignoles</span>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <h4 style="color: var(--primary-blue);">SOS PLOMBERIE</h4>
+            <p>Artisans plombiers qualifiés.<br>Intervention 24h/24 dans tout le Var.<br>SIRET: 994 413 227 00012</p>
+        </div>
+        <div>
+            <h4>Assistance Rapide</h4>
+            <a href="tel:0605722391" style="color: var(--primary-blue); font-weight: 800; font-size: 1.2rem;">06 05 72 23 91</a>
+            <p>Sosfrance.contact@gmail.com</p>
+        </div>
+        <div>
+            <h4>Services Var</h4>
+            <a href="#services">Débouchage</a>
+            <a href="#services">Recherche Fuite</a>
+            <a href="#services">Chauffe-eau</a>
+        </div>
+    </footer>
+
+</body>
+</html>
